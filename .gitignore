@@ -1,0 +1,19 @@
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Временное
+/temp/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Локальные черновики
+*.local
