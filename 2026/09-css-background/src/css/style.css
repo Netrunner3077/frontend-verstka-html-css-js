@@ -1,0 +1,301 @@
+﻿/*
+  ============================================================
+  style.css — демонстрация свойств фона.
+  Урок №9.
+  ============================================================
+*/
+
+/*
+  CSS-переменные (custom properties).
+  Будут изучаться позже, но здесь используются для удобства.
+
+  ИСПРАВЛЕНО: убраны лишние слэши, исправлены опечатки.
+*/
+:root {
+  --default-image: url('../img/AltGirl.jpeg');
+  --default-icon: url('../img/icons/icons8-240.svg');
+  --default-background-image: url('../img/frutigeraero.png');
+}
+
+body {
+  padding: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+  text-align: center;
+  font-size: 24px;
+  color: gold;
+}
+
+.another-color {
+  color: black;
+}
+
+/* Список с фоновыми иконками. */
+.list {
+  margin: 0 0 50px 0;
+}
+
+.list li {
+  font-size: 24px;
+  margin: 0 0 15px 0;
+  padding: 0 0 0 30px;
+  /* Фоновое изображение (SVG-иконка). */
+  background-image: var(--default-icon);
+  /* Размер: ширина auto, высота 100% от высоты строки. */
+  background-size: auto 100%;
+  /* Без повторений. */
+  background-repeat: no-repeat;
+  /* Позиция: левый верхний угол. */
+  background-position: top left;
+}
+
+/* Базовый стиль для всех демо-блоков. */
+.block {
+  margin: 0 0 20px 0;
+  height: 300px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px black;
+  /*
+      ИСПРАВЛЕНО: добавлено overflow: hidden,
+      чтобы фоновое изображение обрезалось по скруглённым углам.
+      Без этого фон выходит за границы border-radius.
+    */
+  overflow: hidden;
+}
+
+/* Прозрачный фон. */
+.zero {
+  background-color: transparent;
+}
+
+/* Сплошной цвет (hex). */
+.first {
+  background-color: #18b5a4;
+}
+
+/* Цвет в формате rgb(). */
+.second {
+  background-color: rgb(24, 181, 164);
+}
+
+/* Цвет с прозрачностью (rgba). */
+.third {
+  background-color: rgba(24, 181, 164, 0.5);
+}
+
+/* Фоновое изображение. */
+.fourth {
+  background-image: var(--default-image);
+}
+
+/*
+  Линейный градиент.
+  ИСПРАВЛЕНО: убраны вендорные префиксы -moz-, -webkit-.
+  Они не нужны с 2015 года — все браузеры поддерживают стандартный синтаксис.
+*/
+.fifth {
+  background: linear-gradient(to bottom,
+      rgba(236, 232, 157, 1) 0%,
+      rgba(94, 83, 115, 1) 50%,
+      rgba(24, 181, 164, 1) 100%);
+}
+
+/*
+  Радиальный градиент.
+  ИСПРАВЛЕНО: убраны вендорные префиксы.
+*/
+.sixth {
+  background: radial-gradient(ellipse at center,
+      rgba(236, 232, 157, 1) 0%,
+      rgba(94, 83, 115, 1) 50%,
+      rgba(24, 181, 164, 1) 100%);
+}
+
+/* Повторение по умолчанию (по обеим осям). */
+.seventh {
+  background-image: var(--default-image);
+  background-repeat: repeat;
+}
+
+/* Без повторений. */
+.eighth {
+  background-image: var(--default-image);
+  background-repeat: no-repeat;
+}
+
+/* Только по горизонтали. */
+.ninth {
+  background-image: var(--default-image);
+  background-repeat: repeat-x;
+}
+
+/* Только по вертикали. */
+.tenth {
+  background-image: var(--default-image);
+  background-repeat: repeat-y;
+}
+
+/* Повторение с промежутками. */
+.eleventh {
+  background-image: var(--default-image);
+  background-repeat: space;
+}
+
+/* Повторение с масштабированием до целого числа. */
+.twelfth {
+  background-image: var(--default-image);
+  background-repeat: round;
+}
+
+/* Позиция по умолчанию (левый верхний угол). */
+.thirteenth {
+  background-image: var(--default-image);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+/* Позиция по центру. */
+.fourteenth {
+  background-image: var(--default-image);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+/* Позиция слева по центру. */
+.fifteenth {
+  background-image: var(--default-image);
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+}
+
+/* Позиция в правом нижнем углу. */
+.sixteenth {
+  background-image: var(--default-image);
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+}
+
+/* Кастомная позиция. */
+.seventeenth {
+  background-image: var(--default-image);
+  background-repeat: no-repeat;
+  background-position: 25px 30px;
+}
+
+/* Привязка scroll (по умолчанию). */
+.eighteenth {
+  background-image: var(--default-background-image);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+/* Привязка fixed (параллакс). */
+.nineteenth {
+  background-image: var(--default-background-image);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Привязка local (со скроллом содержимого). */
+.twentieth {
+  background-image: var(--default-background-image);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-attachment: local;
+  overflow: auto;
+}
+
+/* Размер auto auto (по умолчанию). */
+.twenty-first {
+  background-image: var(--default-background-image);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: auto auto;
+}
+
+/* Размер 100% auto (по ширине). */
+.twenty-second {
+  background-image: var(--default-background-image);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+
+/* Размер auto 100% (по высоте). */
+.twenty-third {
+  background-image: var(--default-background-image);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
+
+/* Размер 100% 100% (растянуть). */
+.twenty-fourth {
+  background-image: var(--default-background-image);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/* contain — поместиться целиком. */
+.twenty-fifth {
+  background-image: var(--default-background-image);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/* cover — покрыть всю область. */
+.twenty-sixth {
+  background-image: var(--default-background-image);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Точные размеры 200x150. */
+.twenty-seventh {
+  background-image: var(--default-background-image);
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 200px 150px;
+}
+
+/* Одно изображение + цвет фона. */
+.twenty-eighth {
+  background-color: #18b5a4;
+  background-image: var(--default-image);
+  background-repeat: no-repeat;
+}
+
+/*
+  Два изображения.
+  Первое — сверху, второе — снизу.
+  background-position и background-size — списки значений.
+*/
+.twenty-ninth {
+  background-image: var(--default-image), var(--default-background-image);
+  background-repeat: no-repeat;
+  background-position: left, 50%;
+  background-size: auto auto, cover;
+}
+
+/* Три изображения. */
+.thirtieth {
+  background-image: var(--default-image), var(--default-image), var(--default-background-image);
+  background-repeat: no-repeat;
+  background-position: right, left, 50%;
+  background-size: 50px, auto auto, cover;
+}
+
+/* Четыре изображения. */
+.thirty-first {
+  background-image: var(--default-image), var(--default-image), var(--default-image), var(--default-background-image);
+  background-repeat: no-repeat;
+  background-position: 0 0, 100% 100%, 50% 50%;
+  background-size: 50px, 50px, auto auto, cover;
+}

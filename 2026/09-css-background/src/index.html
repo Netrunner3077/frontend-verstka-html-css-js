@@ -1,0 +1,290 @@
+<!--
+  ============================================================
+  index.html — демонстрация свойств фона.
+  Урок №9: background-color, background-image,
+  background-repeat, background-position, background-size,
+  background-attachment, градиенты, множественные фоны.
+  ============================================================
+-->
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Повторение CSS. Часть №5 (Свойство заднего фона)</title>
+</head>
+
+<body>
+
+  <!--
+      <ul class="list"> — список с фоновыми иконками.
+      В style.css: background-image (SVG-иконка),
+      background-size: auto 100%, background-repeat: no-repeat,
+      background-position: top left.
+      Иконка отображается слева от каждого пункта.
+    -->
+  <ul class="list">
+    <li>Lorem</li>
+    <li>Lorem</li>
+    <li>Lorem</li>
+    <li>Lorem</li>
+    <li>Lorem</li>
+  </ul>
+
+  <!--
+      .block.zero — прозрачный фон (по умолчанию).
+    -->
+  <div class="block zero">
+    <p>По умолчанию (прозрачный)</p>
+  </div>
+
+  <!--
+      .block.first — background-color: #18b5a4 (hex).
+    -->
+  <div class="block first">
+    <p>Цветной (заливка)</p>
+  </div>
+
+  <!--
+      .block.second — background-color: rgb(24, 181, 164).
+    -->
+  <div class="block second">
+    <p>Цветной (RGB)</p>
+  </div>
+
+  <!--
+      .block.third — background-color: rgba(24, 181, 164, 0.5).
+      Полупрозрачный фон.
+    -->
+  <div class="block third">
+    <p>Цветной (RGBA)</p>
+  </div>
+
+  <!--
+      .block.fourth — background-image: url(...).
+      Фоновое изображение без повторения.
+    -->
+  <div class="block fourth">
+    <p>Изображение (картинка)</p>
+  </div>
+
+  <!--
+      .block.fifth — linear-gradient (линейный градиент).
+      В style.css использован устаревший синтаксис с префиксами.
+      Рекомендуется заменить на стандартный:
+      background: linear-gradient(to bottom, ...);
+    -->
+  <div class="block fifth">
+    <p>Линейный градиент</p>
+  </div>
+
+  <!--
+      .block.sixth — radial-gradient (радиальный градиент).
+    -->
+  <div class="block sixth">
+    <p>Радиальный градиент</p>
+  </div>
+
+  <!--
+      .block.seventh — background-repeat: repeat (по умолчанию).
+      Изображение повторяется по горизонтали и вертикали.
+    -->
+  <div class="block seventh">
+    <p>Фоновый повтор (по умолчанию)</p>
+  </div>
+
+  <!--
+      .block.eighth — background-repeat: no-repeat.
+      Одно изображение без повторений.
+    -->
+  <div class="block eighth">
+    <p>Без повторений</p>
+  </div>
+
+  <!--
+      .block.ninth — background-repeat: repeat-x.
+      Повторение только по горизонтали.
+    -->
+  <div class="block ninth">
+    <p>Повторения по оси абцисс (X)</p>
+  </div>
+
+  <!--
+      .block.tenth — background-repeat: repeat-y.
+      Повторение только по вертикали.
+    -->
+  <div class="block tenth">
+    <p>Повторения по оси ординат (Y)</p>
+  </div>
+
+  <!--
+      .block.eleventh — background-repeat: space.
+      Повторение с равными промежутками.
+    -->
+  <div class="block eleventh">
+    <p>Повторение с разделением</p>
+  </div>
+
+  <!--
+      .block.twelfth — background-repeat: round.
+      Повторение с масштабированием до целого числа изображений.
+    -->
+  <div class="block twelfth">
+    <p>Повторение с размещением целого числа изображений в области</p>
+  </div>
+
+  <!--
+      .block.thirteenth — background-position: 0 0 (по умолчанию).
+    -->
+  <div class="block thirteenth">
+    <p>Фоновая позиция (по умолчанию)</p>
+  </div>
+
+  <!--
+      .block.fourteenth — background-position: 50% 50% (центр).
+    -->
+  <div class="block fourteenth">
+    <p>Фоновая позиция по центру</p>
+  </div>
+
+  <!--
+      .block.fifteenth — background-position: 0 50% (слева по центру).
+    -->
+  <div class="block fifteenth">
+    <p>Фоновая позиция слева</p>
+  </div>
+
+  <!--
+      .block.sixteenth — background-position: 100% 100% (правый нижний).
+    -->
+  <div class="block sixteenth">
+    <p>Фоновая позиция в конце (снизу в углу)</p>
+  </div>
+
+  <!--
+      .block.seventeenth — background-position: 25px 30px.
+      Кастомная позиция в пикселях.
+    -->
+  <div class="block seventeenth">
+    <p>Кастомная позиция изображения</p>
+  </div>
+
+  <!--
+      .block.eighteenth — background-attachment: scroll (по умолчанию).
+    -->
+  <div class="block eighteenth">
+    <p>Фоновое вложение (по умолчанию)</p>
+  </div>
+
+  <!--
+      .block.nineteenth — background-attachment: fixed.
+      Фон фиксирован относительно вьюпорта (эффект параллакса).
+    -->
+  <div class="block nineteenth">
+    <p>Зафиксированное фоновое вложение</p>
+  </div>
+
+  <!--
+      .block.twentieth — background-attachment: local.
+      Фон прокручивается вместе с содержимым.
+      overflow: auto — у блока собственная прокрутка.
+    -->
+  <div class="block twentieth">
+    <p>Фиксация фона на базе поведения элемента</p>
+    <p class="another-color">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. ...
+    </p>
+  </div>
+
+  <!--
+      .block.twenty-first — background-size: auto auto (по умолчанию).
+    -->
+  <div class="block twenty-first">
+    <p>Размер фона (по умолчанию)</p>
+  </div>
+
+  <!--
+      .block.twenty-second — background-size: 100% auto.
+      Ширина 100%, высота автоматически.
+    -->
+  <div class="block twenty-second">
+    <p>Размер фона по ширине</p>
+  </div>
+
+  <!--
+      .block.twenty-third — background-size: auto 100%.
+      Ширина автоматически, высота 100%.
+    -->
+  <div class="block twenty-third">
+    <p>Размер фона по высоте</p>
+  </div>
+
+  <!--
+      .block.twenty-fourth — background-size: 100% 100%.
+      Растянуть на всю область.
+    -->
+  <div class="block twenty-fourth">
+    <p>Растянутый размер фона</p>
+  </div>
+
+  <!--
+      .block.twenty-fifth — background-size: contain.
+      Поместиться целиком.
+    -->
+  <div class="block twenty-fifth">
+    <p>Масштабирование по высоте блока</p>
+  </div>
+
+  <!--
+      .block.twenty-sixth — background-size: cover.
+      Покрыть всю область.
+    -->
+  <div class="block twenty-sixth">
+    <p>Масштабирование по большей стороне изображения</p>
+  </div>
+
+  <!--
+      .block.twenty-seventh — background-size: 200px 150px.
+      Точные размеры.
+    -->
+  <div class="block twenty-seventh">
+    <p>Масштабирование по конкретным размерам</p>
+  </div>
+
+  <!--
+      .block.twenty-eighth — одно изображение + цвет фона.
+      Изображение сверху, цвет — под ним.
+    -->
+  <div class="block twenty-eighth">
+    <p>Одно изображение + цвет</p>
+  </div>
+
+  <!--
+      .block.twenty-ninth — два изображения.
+      Первое — сверху, второе — снизу.
+    -->
+  <div class="block twenty-ninth">
+    <p>Два изображения</p>
+  </div>
+
+  <!--
+      .block.thirtieth — три изображения.
+    -->
+  <div class="block thirtieth">
+    <p>Три изображения</p>
+  </div>
+
+  <!--
+      .block.thirty-first — четыре изображения.
+    -->
+  <div class="block thirty-first">
+    <p>Четыре изображения</p>
+  </div>
+
+</body>
+
+</html>
