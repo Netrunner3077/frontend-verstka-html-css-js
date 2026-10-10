@@ -1,0 +1,58 @@
+<!--
+  ============================================================
+  index.html — демонстрация CSS-псевдоэлементов.
+  Урок №11: ::first-line, ::first-letter, ::before, ::after.
+  ============================================================
+-->
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--
+      Подключение CSS-файлов.
+      reset.css — обнуление стилей браузера (урок №5).
+      style.css — основные стили проекта.
+      Порядок важен: reset подключается первым,
+      чтобы style.css мог переопределить его правила.
+    -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>Повторение CSS. Часть №7 (Псевдоэлементы)</title>
+</head>
+
+<body>
+
+  <!--
+      <p class="text"> — абзац с классом text.
+      Класс используется для стилизации через CSS.
+    -->
+  <p class="text">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    Deleniti distinctio,
+    tenetur beatae veritatis obcaecati quae magni,
+    animi iure possimus dolore perspiciatis quia,
+    eveniet suscipit mollitia ad quod reprehenderit non ut?
+  </p>
+
+  <!--
+      <ul class="list"> — маркированный список с классом list.
+      Каждый элемент списка — <li>.
+    -->
+  <ul class="list">
+    <li>text</li>
+    <li>text</li>
+    <li>text</li>
+    <li>text</li>
+    <li>text</li>
+    <li>text</li>
+    <li>text</li>
+  </ul>
+
+</body>
+
+</html>
