@@ -1,0 +1,127 @@
+<!--
+  ============================================================
+  index.html — демонстрация блочной модели и display.
+  Урок №7: box-sizing, padding, margin, width, height,
+  overflow, display.
+  ============================================================
+-->
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- reset.css — обнуление стилей браузера. Подключается первым. -->
+  <link rel="stylesheet" href="css/reset.css">
+
+  <!-- style.css — основные стили урока. -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <title>Повторение CSS. Часть №3 (Свойства блоков: отступы)</title>
+</head>
+
+<body>
+
+  <!--
+      <div class="example-block"> — блочный элемент.
+      В CSS для него заданы:
+        - margin: 10px 0 (внешние отступы сверху и снизу);
+        - padding: 30px (внутренний отступ со всех сторон);
+        - height: 50% (высота — половина от родителя);
+        - width: 700px (ширина);
+        - border: 3px solid #000 (граница);
+        - overflow: auto (полосы прокрутки при переполнении).
+      Благодаря box-sizing: border-box (из reset.css) ширина 700px
+      включает padding и border.
+    -->
+  <div class="example-block">
+    Блочный тег<br>
+    <!--
+          Длинный текст, чтобы вызвать переполнение и проверить overflow: auto.
+        -->
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+    Fugit distinctio, itaque aliquam explicabo amet modi recusandae,
+    cupiditate voluptas officia animi necessitatibus iusto ipsum cumque commodi nihil,
+    natus exercitationem sapiente alias sed nisi! Neque tenetur quis nulla nisi perferendis.
+    Alias consectetur soluta repellendus animi unde exercitationem suscipit velit,
+    quibusdam sed deserunt quae aperiam, nisi illum ullam,
+    ipsum illo necessitatibus nam atque magni totam optio asperiores dolorem aspernatur laudantium.
+    Inventore consequatur voluptatum quod ratione pariatur voluptatem commodi est fugit sequi? Autem,
+    totam eveniet quos mollitia corporis ipsum error ratione architecto quod maxime fuga saepe eligendi velit dolor!
+    Reprehenderit, rem? Id, libero soluta.
+    <!-- (повтор для объёма) -->
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+    Fugit distinctio, itaque aliquam explicabo amet modi recusandae,
+    cupiditate voluptas officia animi necessitatibus iusto ipsum cumque commodi nihil,
+    natus exercitationem sapiente alias sed nisi! Neque tenetur quis nulla nisi perferendis.
+    Alias consectetur soluta repellendus animi unde exercitationem suscipit velit,
+    quibusdam sed deserunt quae aperiam, nisi illum ullam,
+    ipsum illo necessitatibus nam atque magni totam optio asperiores dolorem aspernatur laudantium.
+    Inventore consequatur voluptatum quod ratione pariatur voluptatem commodi est fugit sequi? Autem,
+    totam eveniet quos mollitia corporis ipsum error ratione architecto quod maxime fuga saepe eligendi velit dolor!
+    Reprehenderit, rem? Id, libero soluta.
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+    Fugit distinctio, itaque aliquam explicabo amet modi recusandae,
+    cupiditate voluptas officia animi necessitatibus iusto ipsum cumque commodi nihil,
+    natus exercitationem sapiente alias sed nisi! Neque tenetur quis nulla nisi perferendis.
+    Alias consectetur soluta repellendus animi unde exercitationem suscipit velit,
+    quibusdam sed deserunt quae aperiam, nisi illum ullam,
+    ipsum illo necessitatibus nam atque magni totam optio asperiores dolorem aspernatur laudantium.
+    Inventore consequatur voluptatum quod ratione pariatur voluptatem commodi est fugit sequi? Autem,
+    totam eveniet quos mollitia corporis ipsum error ratione architecto quod maxime fuga saepe eligendi velit dolor!
+    Reprehenderit, rem? Id, libero soluta.
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+    Fugit distinctio, itaque aliquam explicabo amet modi recusandae,
+    cupiditate voluptas officia animi necessitatibus iusto ipsum cumque commodi nihil,
+    natus exercitationem sapiente alias sed nisi! Neque tenetur quis nulla nisi perferendis.
+    Alias consectetur soluta repellendus animi unde exercitationem suscipit velit,
+    quibusdam sed deserunt quae aperiam, nisi illum ullam,
+    ipsum illo necessitatibus nam atque magni totam optio asperiores dolorem aspernatur laudantium.
+    Inventore consequatur voluptatum quod ratione pariatur voluptatem commodi est fugit sequi? Autem,
+    totam eveniet quos mollitia corporis ipsum error ratione architecto quod maxime fuga saepe eligendi velit dolor!
+    Reprehenderit, rem? Id, libero soluta.
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+    Fugit distinctio, itaque aliquam explicabo amet modi recusandae,
+    cupiditate voluptas officia animi necessitatibus iusto ipsum cumque commodi nihil,
+    natus exercitationem sapiente alias sed nisi! Neque tenetur quis nulla nisi perferendis.
+    Alias consectetur soluta repellendus animi unde exercitationem suscipit velit,
+    quibusdam sed deserunt quae aperiam, nisi illum ullam,
+    ipsum illo necessitatibus nam atque magni totam optio asperiores dolorem aspernatur laudantium.
+    Inventore consequatur voluptatum quod ratione pariatur voluptatem commodi est fugit sequi? Autem,
+    totam eveniet quos mollitia corporis ipsum error ratione architecto quod maxime fuga saepe eligendi velit dolor!
+    Reprehenderit, rem? Id, libero soluta.
+  </div>
+
+  <!--
+      <span class="example-string"> — строчный элемент.
+      В CSS для него задан display: inline-block, что превращает
+      его в строчно-блочный: снаружи ведёт себя как строчный,
+      внутри — как блочный (работают width, height, padding, margin).
+    -->
+  <span class="example-string">
+    Строчный тег<br>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+    Suscipit nam inventore laudantium temporibus esse fuga blanditiis vero perspiciatis id,
+    neque nisi quasi repellendus ratione exercitationem harum aut voluptatibus quas delectus.
+    Dicta porro voluptatem, non nulla minima dolor cum voluptas. Nemo, recusandae reiciendis alias ipsum atque ex,
+    aliquid voluptatum perferendis voluptatibus aspernatur odio deleniti expedita necessitatibus dignissimos?
+    Vel quibusdam labore quo et impedit optio, qui numquam?
+    Voluptatibus quisquam voluptatem consectetur aspernatur sit totam quia eius fugiat perferendis exercitationem eos
+    sed nam,
+    ipsam iusto iure incidunt laboriosam aliquam nobis natus repellendus, inventore adipisci nostrum porro excepturi!
+    Saepe adipisci tempore dolore animi sit.
+  </span>
+
+  <!--
+      <img class="example-image"> — изображение.
+      Строчный элемент, но с display: inline-block или block
+      работают width, height, max-width, min-width.
+      ВАЖНО: фиксированная height: 600px может исказить
+      пропорции изображения. Лучше использовать height: auto.
+    -->
+  <img class="example-image" src="img/Dreamcore.jpeg" alt="Dreamcore">
+</body>
+
+</html>

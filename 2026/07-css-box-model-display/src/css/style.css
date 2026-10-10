@@ -1,0 +1,86 @@
+/*
+  ============================================================
+  style.css — демонстрация блочной модели.
+  Урок №7: padding, margin, width, height, overflow, display.
+  ============================================================
+*/
+
+/*
+  .example-block — блочный элемент.
+  Благодаря box-sizing: border-box (из reset.css)
+  width: 700px включает padding (30px) и border (3px).
+  Без border-box ширина была бы 700 + 60 + 6 = 766px.
+*/
+.example-block {
+  /*
+      margin: 10px 0 — внешние отступы:
+      сверху и снизу по 10px, слева и справа — 0.
+      Запись «10px 0» = «top/bottom right/left».
+    */
+  margin: 10px 0 10px 0;
+
+  /*
+      padding: 30px — внутренний отступ со всех сторон.
+      Пространство между содержимым и границей.
+    */
+  padding: 30px;
+
+  /*
+      height: 50% — половина высоты родителя (body).
+      Работает, потому что у html и body задан height: 100%
+      (из reset.css). Без этого процент игнорировался бы.
+    */
+  height: 50%;
+
+  /*
+      width: 700px — ширина блока.
+      С border-box включает padding и border.
+    */
+  width: 700px;
+
+  /*
+      border: 3px solid #000 — граница:
+      3px толщина, сплошная, чёрная.
+      Это shorthand для border-width, border-style, border-color.
+    */
+  border: 3px solid #000;
+
+  /*
+      overflow: auto — полосы прокрутки появляются только
+      при необходимости (если контент не помещается).
+    */
+  overflow: auto;
+}
+
+/*
+  .example-string — строчный элемент <span>.
+  display: inline-block превращает его в строчно-блочный:
+    - снаружи ведёт себя как строчный (обтекается текстом);
+    - внутри — как блочный (работают width, height, padding, margin).
+  Без этого свойства width, height и вертикальные padding/margin
+  на span не работали бы.
+*/
+.example-string {
+  display: inline-block;
+  padding: 20px;
+  width: 500px;
+  border: 3px solid #000;
+}
+
+/*
+  .example-image — изображение.
+  Заданы width, height, max-width, min-width.
+  Приоритет: min-width > width > max-width.
+  Здесь:
+    - width: 100% — растянуть на всю ширину родителя;
+    - max-width: 600px — но не шире 600px;
+    - min-width: 300px — и не уже 300px;
+    - height: 600px — фиксированная высота (может исказить
+      пропорции; в реальных проектах лучше height: auto).
+*/
+.example-image {
+  height: 600px;
+  width: 100%;
+  max-width: 600px;
+  min-width: 300px;
+}

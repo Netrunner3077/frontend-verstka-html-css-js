@@ -1,0 +1,77 @@
+<!--
+  ============================================================
+  practice-box-model.html — практическое задание по уроку №7.
+  Свёрстана «карточка товара» для закрепления темы:
+  padding, margin, width, height, box-sizing, display.
+  ============================================================
+-->
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/practice-box-model.css">
+  <title>Повторение CSS. Часть №3 (Практика)</title>
+</head>
+
+<body>
+
+  <!--
+      Контейнер-обёртка для центрирования карточки.
+      margin: 0 auto — центрирует по горизонтали.
+    -->
+  <div class="wrapper">
+
+    <!--
+          <article class="product-card"> — карточка товара.
+          Внутри: изображение, заголовок, описание, цена, кнопка.
+        -->
+    <article class="product-card">
+
+      <!-- Изображение товара. -->
+      <img class="product-card__image" src="img/Dreamcore.jpeg" alt="Товар">
+
+      <!-- Обёртка для текстового содержимого карточки. -->
+      <div class="product-card__body">
+
+        <h2 class="product-card__title">Название товара</h2>
+
+        <p class="product-card__description">
+          Краткое описание товара. Несколько строк текста,
+          чтобы показать, как работает padding внутри карточки.
+        </p>
+
+        <p class="product-card__price">1 990 ₽</p>
+
+        <button class="product-card__button" type="button">
+          В корзину
+        </button>
+
+      </div>
+
+    </article>
+
+    <!--
+          Второй блок — для сравнения content-box и border-box.
+          Одинаковые width и padding, разные box-sizing.
+        -->
+    <div class="compare">
+
+      <div class="compare__box compare__box--content">
+        content-box
+      </div>
+
+      <div class="compare__box compare__box--border">
+        border-box
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>

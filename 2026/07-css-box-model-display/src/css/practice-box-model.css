@@ -1,0 +1,144 @@
+/*
+  ============================================================
+  practice-box-model.css — стили практического задания
+  по уроку №7.
+  ============================================================
+*/
+
+/* Обёртка страницы. */
+.wrapper {
+  max-width: 900px;
+  /* ограничение по ширине */
+  margin: 40px auto;
+  /* 40px сверху/снизу, auto по бокам — центрирует */
+  padding: 0 20px;
+  /* защитные отступы по бокам на мобильных */
+}
+
+/*
+  Карточка товара.
+  box-sizing: border-box (задан в reset.css) — ширина включает
+  padding и border. Поэтому width: 300px — итоговая ширина.
+*/
+.product-card {
+  display: inline-block;
+  /* можно несколько карточек в ряд */
+  vertical-align: top;
+  /* выравнивание по верху, если карточек несколько */
+  width: 300px;
+  margin: 0 20px 20px 0;
+  /* внешние отступы */
+  background-color: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  /* обрезает изображение по скруглённым углам */
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+/*
+  Изображение внутри карточки.
+  width: 100% — растягивается по ширине карточки.
+  height: auto — сохраняет пропорции.
+  display: block — убирает нижний отступ inline-элементов.
+*/
+.product-card__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/*
+  Тело карточки — текстовое содержимое.
+  padding — внутренний отступ от краёв карточки.
+*/
+.product-card__body {
+  padding: 20px;
+}
+
+/*
+  Заголовок товара.
+  margin-bottom — отступ до описания.
+*/
+.product-card__title {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/*
+  Описание товара.
+  line-height — межстрочный интервал.
+  margin-bottom — отступ до цены.
+*/
+.product-card__description {
+  margin: 0 0 15px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #64748b;
+}
+
+/*
+  Цена.
+  Крупная и акцентная.
+*/
+.product-card__price {
+  margin: 0 0 15px 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #f97316;
+}
+
+/*
+  Кнопка.
+  padding — внутренние отступы (без них кнопка будет крошечной).
+  border-radius — скругление.
+  cursor: pointer — курсор-рука при наведении.
+*/
+.product-card__button {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  background-color: #f97316;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/*
+  Сравнение content-box и border-box.
+  У обоих блоков одинаковые width и padding,
+  но разные box-sizing — визуально они будут разной ширины.
+*/
+.compare {
+  margin-top: 40px;
+}
+
+.compare__box {
+  display: inline-block;
+  vertical-align: top;
+  width: 200px;
+  padding: 20px;
+  margin-right: 20px;
+  border: 5px solid #0f172a;
+  background-color: #e2e8f0;
+  text-align: center;
+  font-weight: 600;
+}
+
+/*
+  content-box — ширина 200px + padding 40px + border 10px = 250px.
+*/
+.compare__box--content {
+  box-sizing: content-box;
+}
+
+/*
+  border-box — ширина ровно 200px, padding и border внутри.
+*/
+.compare__box--border {
+  box-sizing: border-box;
+}
