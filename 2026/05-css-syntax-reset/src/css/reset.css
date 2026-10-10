@@ -1,0 +1,275 @@
+/*
+  ============================================================
+  reset.css — обнуление стилей браузера.
+  Урок №5: reset в стиле Эрика Мейера (1999) с добавлениями.
+
+  ВАЖНО: этот файл оставлен в исходном виде для наглядности.
+  В комментариях ниже указаны проблемные места с точки зрения
+  современной практики (2024+).
+
+  Актуальная альтернатива: modern-css-reset Энди Белла —
+  https://github.com/andy-piccalilli/modern-css-reset
+  ============================================================
+*/
+
+/*
+  Сброс padding, margin, border у ВСЕХ элементов.
+  Специфичность * = 0,0,0,0 — перебить легко.
+
+  ПРОБЛЕМА: сброс padding и border у <button>, <input>, <select>
+  ломает их стандартное оформление (они становятся «сплюснутыми»).
+  В современной практике сбрасывают только margin, а padding —
+  точечно.
+*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+/*
+  box-sizing: border-box для всех элементов и псевдоэлементов.
+  border-box означает: width и height включают padding и border.
+  Это удобнее, чем content-box (по умолчанию).
+
+  ПРОБЛЕМА: префиксы -moz- и -webkit- не нужны с 2015 года.
+  Все браузеры поддерживают box-sizing без префиксов.
+  Оставить только box-sizing: border-box;.
+*/
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*
+  Убирает контур фокуса (outline) при фокусе и активации.
+
+  КРИТИЧЕСКАЯ ПРОБЛЕМА: удаляет единственный визуальный индикатор
+  фокуса при навигации с клавиатуры. Пользователи, которые не
+  используют мышь, не видят, где находятся.
+
+  СОВРЕМЕННОЕ РЕШЕНИЕ:
+    :focus-visible { outline: 2px solid #007bff; outline-offset: 2px; }
+  — контур появится только при навигации с клавиатуры,
+  а не при клике мышью.
+*/
+:focus,
+:active {
+  outline: none;
+}
+
+/*
+  То же для ссылок. Такая же проблема.
+*/
+a:focus,
+a:active {
+  outline: none;
+}
+
+/*
+  Делает семантические теги блочными.
+  В HTML5 <header>, <nav>, <aside>, <footer> уже блочные
+  по умолчанию. Правило нужно только для очень старых браузеров
+  (IE8 и ниже) — сегодня неактуально.
+*/
+header,
+nav,
+aside,
+footer {
+  display: block;
+}
+
+/*
+  Убирает подсветку тапа на мобильных (Safari, Chrome).
+  Полезное правило, актуально.
+*/
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/*
+  width, height: 100% для html и body.
+
+  ПРОБЛЕМА: height: 100% ломает «прилипающий» футер
+  и создаёт проблемы, если контента больше, чем экран.
+  СОВРЕМЕННОЕ РЕШЕНИЕ: body { min-height: 100vh; }
+
+  line-height: 1 — ухудшает читаемость текста.
+  СОВРЕМЕННОЕ РЕШЕНИЕ: body { line-height: 1.5; }
+
+  -ms-text-size-adjust и -moz-text-size-adjust устарели,
+  нужен только -webkit-text-size-adjust (для Safari/iOS).
+*/
+html,
+body {
+  width: 100%;
+  height: 100%;
+  line-height: 1;
+  font-size: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/*
+  Курсор-указатель для <select>.
+  Полезное правило, актуально.
+*/
+select {
+  cursor: pointer;
+}
+
+/*
+  Наследование шрифта и цвета для форм.
+  По умолчанию <input>, <button>, <textarea> не наследуют
+  font-family и color от родителя. Правило заставляет их
+  наследовать — так стили формы совпадают с остальным текстом.
+  Полезное правило, актуально.
+*/
+input,
+button,
+textarea {
+  font-family: inherit;
+  font: inherit;
+  color: inherit;
+  background: none;
+}
+
+/*
+  Убирает «крестик» очистки в <input type="search"> в IE.
+  IE снят с поддержки в 2022. Правило неактуально.
+*/
+input::-ms-clear {
+  display: none;
+}
+
+/*
+  Курсор-указатель для <button>.
+  Полезное правило, актуально.
+*/
+button {
+  cursor: pointer;
+}
+
+/*
+  Убирает лишние отступы и границы в <button> в Firefox.
+  Неактуально с 2013 года.
+*/
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+/*
+  Убирает подчёркивание у ссылок (обычных и посещённых).
+  Полезное правило, но помните: убирать подчёркивание у ссылок
+  без визуальной замены — плохо для доступности
+  (пользователь не отличает ссылку от текста).
+*/
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/*
+  Убирает маркеры у списков.
+  Полезное правило.
+*/
+ul li,
+ol li {
+  list-style: none;
+}
+
+/*
+  Убирает нижний отступ у <img> (inline-элемент) и
+  делает изображения адаптивными (max-width: 100%).
+  Полезное правило, актуально.
+*/
+img {
+  vertical-align: top;
+  max-width: 100%;
+  height: auto;
+}
+
+/*
+  Уравнивает все заголовки по размеру и весу.
+  Полезное правило: дальше разработчик сам задаёт размеры.
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*
+  Убирает отступы между ячейками таблицы.
+  Полезное правило, актуально.
+*/
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*
+  Убирает автоматические кавычки у <blockquote> и <q>.
+  Полезное правило, но помните: <q> должен визуально
+  показывать кавычки — иначе теряется смысл.
+*/
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+  content: '';
+  content: none;
+}
+
+/*
+  Позиционирование <sub> и <sup>.
+  position: relative здесь избыточно, но не вредит.
+*/
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+  Явные стили для <b>, <strong>, <em>, <i>.
+  В браузерах эти теги уже имеют такие стили по умолчанию,
+  но правило гарантирует единообразие.
+*/
+b,
+strong {
+  font-weight: 700;
+}
+
+em,
+i {
+  font-style: italic;
+}

@@ -1,0 +1,131 @@
+<!--
+  ============================================================
+  index.html — демонстрация CSS-селекторов и обнуления.
+  Урок №5: подключение CSS, селекторы, каскад, reset.
+  ============================================================
+-->
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--
+      <link> — подключение внешней таблицы стилей.
+      rel="stylesheet" — тип связи: файл является таблицей стилей.
+      href="css/style.css" — путь к CSS-файлу относительно HTML.
+      Этот тег должен стоять ДО <title>, но после <meta charset>.
+    -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!--
+      В <title> использована HTML-сущность &amp; для символа &.
+    -->
+  <title>Повторение CSS. Часть №1 (Синтаксис &amp; Обнуление)</title>
+</head>
+
+<body>
+
+  <!--
+      <div> — универсальный контейнер. Внутри — абзацы <p>.
+      Некоторые <span> имеют класс bigRed.
+    -->
+  <div>
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+      <!--
+              <span class="bigRed"> — строчный элемент с классом.
+              В CSS обратиться к нему можно так: .bigRed { ... }
+              или span.bigRed { ... } (более специфичный).
+            -->
+      <span class="bigRed">Velit non facilis eligendi harum</span>.
+      Velit odio doloribus cum dolore, quae amet ullam voluptate ducimus!
+      Velit culpa quod quibusdam error distinctio maiores veniam, cum cupiditate?
+      <!--
+              <span> без класса. В CSS на него не действует .bigRed.
+            -->
+      <span>Cum accusamus ipsam laboriosam dolor exercitationem architecto</span>.
+      Repudiandae possimus officiis aliquam dolorum, odit facere provident fuga est?
+    </p>
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      <span class="bigRed">Iure officiis exercitationem dolorem?</span>
+      Optio, eligendi numquam, accusantium ea sequi maiores, doloribus
+      atque inventore nisi aliquid cupiditate!
+    </p>
+
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Eius facere fugiat, officiis quod doloribus porro! Quia, temporibus
+      voluptates ullam animi optio iusto numquam facilis, exercitationem
+      omnis doloremque molestiae dolores impedit ipsum eaque, explicabo
+      ratione totam velit eos vitae officia a quo aspernatur ipsam ducimus.
+      Similique officiis quisquam, nesciunt maiores aliquid doloremque
+      suscipit debitis quaerat reprehenderit magni corrupti possimus
+      pariatur nemo officia deserunt laudantium, quos omnis, sit ratione!
+      Hic optio necessitatibus, ipsam quibusdam explicabo corrupti,
+      magnam adipisci dignissimos, laboriosam itaque ad quasi assumenda
+      repellendus molestias quae dicta quam aliquam tempora. Architecto
+      maiores sapiente in quisquam excepturi doloribus iusto repellat
+      sed repellendus.
+    </p>
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Amet repudiandae asperiores perferendis iusto necessitatibus libero
+      voluptate qui. Facilis sunt ea omnis in quas facere ullam expedita
+      vitae! Ut, iste illum.
+    </p>
+
+    <!--
+          <p class="bigGray"> — абзац с классом bigGray.
+          Внутри — <span>, к которому в CSS применяется селектор
+          .bigGray span (потомок).
+        -->
+    <p class="bigGray">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+      <span>Totam, sunt!</span>
+    </p>
+  </div>
+
+  <!--
+      <div class="block"> — контейнер с классом block.
+      В CSS к нему применяется .block { ... } и .block > p { ... }.
+    -->
+  <div class="block">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Accusantium voluptatibus debitis reiciendis harum ipsum ad obcaecati
+      vel nulla sunt, deserunt minus esse quisquam eius itaque suscipit,
+      tempora facilis ducimus. Culpa, non? Expedita tempore provident
+      aliquam fuga reiciendis, beatae debitis, voluptatem impedit esse
+      modi tenetur eligendi eveniet iste consectetur amet. Aliquam mollitia
+      nisi veritatis ipsa? Itaque commodi ab amet enim ipsam nam dolore,
+      nostrum fugit consequatur ut saepe nesciunt voluptatum, ratione at
+      fuga? Excepturi quasi illum laborum dolorem laboriosam debitis,
+      molestiae cupiditate error aspernatur fuga repellat culpa adipisci
+      aliquam doloribus rerum. Porro, recusandae saepe. Molestias
+      distinctio reprehenderit impedit! Perspiciatis assumenda officia,
+      doloribus corrupti illo soluta? Nesciunt delectus doloribus
+      consectetur pariatur repellat et consequatur excepturi. Quis sint,
+      illo ratione quae odio, voluptas voluptatem libero fugit nulla eius
+      reprehenderit? Quidem odio ut cumque repellendus temporibus rem nemo
+      ea dolores quas. Quis nobis maxime architecto nemo, molestias quod.
+      Laudantium praesentium molestiae, voluptates qui sapiente, illum,
+      pariatur explicabo harum assumenda magnam deleniti tenetur nemo neque
+      voluptatum beatae ullam! Et quae ratione voluptas explicabo possimus,
+      fugiat temporibus assumenda qui vero nobis in est! Sunt necessitatibus
+      amet nostrum, laudantium eveniet natus provident qui perspiciatis
+      est voluptatum! Provident, dolores commodi beatae nihil eos nemo ab
+      aliquam impedit ex, ipsa soluta saepe. Et, iste alias numquam quod
+      praesentium aliquid repellat. Similique deserunt possimus laborum
+      totam tempora illo ea ab.
+    </p>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,285 @@
+<!--
+  ============================================================
+  practice-sysadmin.html — практическая работа по уроку №5.
+  Демонстрация семантической разметки + подключение reset.css.
+
+  ВАЖНО: этот файл подключает ТОЛЬКО reset.css, без style.css.
+  Поэтому классы (site-header, main-nav, card и т.д.) НЕ
+  стилизованы — страница выглядит «чистой» после обнуления.
+  Это сделано специально: чтобы увидеть эффект reset.
+  ============================================================
+-->
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--
+      Подключён только reset.css. Без него браузер применил бы
+      стили по умолчанию: заголовки крупные, списки с маркерами,
+      ссылки подчёркнуты, отступы у абзацев.
+      После reset всё это исчезает — страница выглядит «голой».
+    -->
+  <link rel="stylesheet" href="css/reset.css">
+
+  <title>Инструменты, сети и безопасность &mdash; продолжение</title>
+</head>
+
+<body>
+
+  <!-- ================= ШАПКА ================= -->
+
+  <!--
+      <header> — семантический элемент.
+      class="site-header" — класс для стилизации (в этом уроке
+      не стилизован, потому что подключён только reset.css).
+    -->
+  <header class="site-header">
+
+    <!-- Логотип: блок с двумя span. -->
+    <div class="logo">
+      <span class="logo-mark">SA</span>
+      <span class="logo-text">SysAdmin Notes</span>
+    </div>
+
+    <!-- Навигация. -->
+    <nav class="main-nav">
+      <!--
+              <ul> — маркированный список.
+              После reset маркеры убраны (list-style: none).
+            -->
+      <ul class="nav-list">
+        <li class="nav-item"><a class="nav-link" href="#tools">Инструменты</a></li>
+        <li class="nav-item"><a class="nav-link" href="#networks">Сети</a></li>
+        <li class="nav-item"><a class="nav-link" href="#security">Безопасность</a></li>
+        <li class="nav-item"><a class="nav-link" href="#practice">Практика</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacts">Контакты</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ================= ОСНОВНОЙ КОНТЕНТ ================= -->
+  <main class="content">
+
+    <!-- ---------- Вступление ---------- -->
+    <section class="hero" id="intro">
+      <h1 class="hero-title">Инструменты, сети и безопасность</h1>
+      <p class="hero-subtitle">
+        Продолжение заметок о системном администрировании Windows &amp; Linux.
+        Здесь — про то, чем сисадмин работает каждый день и как защищает инфраструктуру.
+      </p>
+      <a class="btn btn-primary" href="#tools">Начать изучение</a>
+    </section>
+
+    <!-- ---------- Инструменты ---------- -->
+    <section class="section" id="tools">
+      <h2 class="section-title">Инструменты администратора</h2>
+      <p class="section-text">
+        Независимо от того, работаете вы с <strong>Windows</strong> или <strong>Linux</strong>,
+        набор базовых инструментов во многом пересекается. Одни помогают диагностировать сеть,
+        другие — управлять процессами, третьи — следить за состоянием дисков.
+      </p>
+
+      <!-- Карточки. -->
+      <div class="cards">
+        <article class="card">
+          <h3 class="card-title">Диагностика сети</h3>
+          <p class="card-text">
+            <!-- <code> — семантический тег для фрагмента кода. -->
+            <code>ping</code>, <code>tracert</code> / <code>traceroute</code>,
+            <code>nslookup</code>, <code>netstat</code> — минимальный набор для проверки
+            связи и поиска проблем.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3 class="card-title">Мониторинг системы</h3>
+          <p class="card-text">
+            В Windows — <code>Task Manager</code> и <code>Performance Monitor</code>.
+            В Linux — <code>top</code>, <code>htop</code>, <code>vmstat</code>, <code>iostat</code>.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3 class="card-title">Работа с файлами</h3>
+          <p class="card-text">
+            <code>cp</code>, <code>mv</code>, <code>rsync</code> в Linux;
+            <code>robocopy</code>, <code>xcopy</code> в Windows.
+            Автоматизация рутины — половина успеха.
+          </p>
+        </article>
+      </div>
+
+      <h3 class="subsection-title">Что важно освоить в первую очередь</h3>
+
+      <!-- <ol> — нумерованный список. После reset нумерация скрыта. -->
+      <ol class="skills-list">
+        <li class="skills-item">Читать логи: <code>journalctl</code>, <code>Event Viewer</code>.</li>
+        <li class="skills-item">Управлять пользователями и правами.</li>
+        <li class="skills-item">Планировать задачи: <code>cron</code>, <code>Task Scheduler</code>.</li>
+        <li class="skills-item">Работать с SSH и удалённым доступом.</li>
+        <li class="skills-item">Писать простые скрипты на <code>bash</code> и <code>PowerShell</code>.</li>
+      </ol>
+    </section>
+
+    <!-- ---------- Сети ---------- -->
+    <section class="section section-alt" id="networks">
+      <h2 class="section-title">Сети: база, без которой никуда</h2>
+      <p class="section-text">
+        Сеть — это кровеносная система инфраструктуры. Даже идеально настроенный сервер
+        бесполезен, если к нему нет доступа. Понимание модели OSI и стека TCP/IP —
+        не «теория ради теории», а рабочий инструмент.
+      </p>
+
+      <h3 class="subsection-title">Уровни модели OSI (кратко)</h3>
+      <ul class="osi-list">
+        <li class="osi-item"><span class="osi-num">7</span> Прикладной — HTTP, DNS, SMTP</li>
+        <li class="osi-item"><span class="osi-num">6</span> Представления — шифрование, сжатие</li>
+        <li class="osi-item"><span class="osi-num">5</span> Сеансовый — установка сессий</li>
+        <li class="osi-item"><span class="osi-num">4</span> Транспортный — TCP, UDP</li>
+        <li class="osi-item"><span class="osi-num">3</span> Сетевой — IP, ICMP, маршрутизация</li>
+        <li class="osi-item"><span class="osi-num">2</span> Канальный — Ethernet, MAC</li>
+        <li class="osi-item"><span class="osi-num">1</span> Физический — кабели, сигналы</li>
+      </ul>
+
+      <!-- <blockquote> — цитата. После reset кавычки убраны. -->
+      <blockquote class="quote">
+        «Не понимаешь, на каком уровне проблема — начинай снизу.
+        Кабель, потом интерфейс, потом маршрут, потом приложение.»
+      </blockquote>
+    </section>
+
+    <!-- ---------- Безопасность ---------- -->
+    <section class="section" id="security">
+      <h2 class="section-title">Безопасность</h2>
+      <p class="section-text">
+        Безопасность — это не один инструмент, а <em>процесс</em>. Политики, обновления,
+        резервные копии и мониторинг работают только вместе.
+      </p>
+
+      <h3 class="subsection-title">Базовые принципы</h3>
+
+      <!-- <table> — таблица. После reset границы слиты. -->
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th class="th-feature">Принцип</th>
+            <th class="th-windows">Windows</th>
+            <th class="th-linux">Linux</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-feature">Обновления</td>
+            <td>Windows Update / WSUS</td>
+            <td>apt / dnf / yum</td>
+          </tr>
+          <tr>
+            <td class="td-feature">Файрвол</td>
+            <td>Windows Defender Firewall</td>
+            <td>iptables / nftables / ufw</td>
+          </tr>
+          <tr>
+            <td class="td-feature">Аутентификация</td>
+            <td>Active Directory, Kerberos</td>
+            <td>LDAP, PAM, SSH-ключи</td>
+          </tr>
+          <tr>
+            <td class="td-feature">Логи</td>
+            <td>Event Viewer</td>
+            <td>syslog, journalctl</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="subsection-title">Правило трёх копий (3-2-1)</h3>
+      <ul class="backup-list">
+        <li class="backup-item"><strong>3</strong> копии данных</li>
+        <li class="backup-item"><strong>2</strong> разных носителя</li>
+        <li class="backup-item"><strong>1</strong> копия — вне офиса</li>
+      </ul>
+    </section>
+
+    <!-- ---------- Практика ---------- -->
+    <section class="section section-alt" id="practice">
+      <h2 class="section-title">Практическое задание</h2>
+      <p class="section-text">
+        Ниже — блок кода с примером скрипта резервного копирования на <code>bash</code>.
+        Стилизуй его так, чтобы он визуально отличался от обычного текста.
+      </p>
+
+      <!--
+              <pre> — блок предварительно форматированного текста
+              (сохраняет пробелы и переносы).
+              <code> — семантический тег для кода.
+            -->
+      <pre class="code-block"><code>#!/bin/bash
+# Простой бэкап каталога /etc
+DATE=$(date +%F)
+tar -czf /backup/etc-$DATE.tar.gz /etc
+echo "Резервная копия создана: /backup/etc-$DATE.tar.gz"</code></pre>
+
+      <h3 class="subsection-title">Ссылки на документацию</h3>
+      <ul class="links-list">
+        <li class="links-item">
+          <a class="doc-link" target="_blank" href="https://learn.microsoft.com/ru-ru/windows-server/">
+            Документация Windows Server
+          </a>
+        </li>
+        <li class="links-item">
+          <a class="doc-link" target="_blank" href="https://ubuntu.com/server/docs">
+            Ubuntu Server Documentation
+          </a>
+        </li>
+        <li class="links-item">
+          <a class="doc-link" target="_blank" href="https://www.debian.org/doc/">
+            Debian Administrator's Handbook
+          </a>
+        </li>
+      </ul>
+
+      <p class="note">
+        <ins>Совет:</ins> не бойтесь ломать свою тестовую лабораторию.
+        Снапшот в виртуальной машине — и вы снова в строю.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- ================= ПОДВАЛ ================= -->
+  <footer class="site-footer" id="contacts">
+    <div class="footer-column">
+      <h4 class="footer-title">О проекте</h4>
+      <p class="footer-text">
+        Учебные заметки по системному администрированию.
+        Материалы предоставлены в образовательных целях.
+      </p>
+    </div>
+
+    <div class="footer-column">
+      <h4 class="footer-title">Разделы</h4>
+      <ul class="footer-list">
+        <li class="footer-item"><a class="footer-link" href="#tools">Инструменты</a></li>
+        <li class="footer-item"><a class="footer-link" href="#networks">Сети</a></li>
+        <li class="footer-item"><a class="footer-link" href="#security">Безопасность</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4 class="footer-title">Связь</h4>
+      <p class="footer-text">
+        Email: <a class="footer-link" href="mailto:admin@example.com">admin@example.com</a>
+      </p>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">&copy; 2026 SysAdmin Notes. Все права защищены.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
