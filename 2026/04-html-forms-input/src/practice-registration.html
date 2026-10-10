@@ -1,0 +1,139 @@
+<!--
+  ============================================================
+  practice-registration.html — практическая форма по уроку №4.
+  Демонстрация полей с указанием tabindex.
+  ============================================================
+-->
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Повторение HTML тегов. Часть №3 (Формы)</title>
+</head>
+
+<body>
+
+  <!--
+      <form> — оболочка формы.
+      action="#" — данные уйдут на текущий URL.
+      method="get" — данные передаются в адресной строке.
+      ВНИМАНИЕ: для форм с паролем метод GET использовать нельзя —
+      пароль попадёт в URL, историю браузера и логи сервера.
+      Здесь он указан только в учебных целях.
+    -->
+  <form action="#" method="get">
+
+    <!-- Обёртка для поля логина. -->
+    <div>
+      <p>Имя пользователя</p>
+      <!--
+              tabindex="1" — первое поле в порядке обхода Tab.
+              В современной практике положительные значения tabindex
+              не рекомендуются: они ломают естественный порядок обхода
+              и вредят доступности. Здесь показаны для демонстрации.
+            -->
+      <input placeholder="Имя пользователя" tabindex="1" type="text" name="username">
+    </div>
+
+    <!-- Обёртка для поля пароля. -->
+    <div>
+      <p>Пароль</p>
+      <input placeholder="Пароль" tabindex="2" type="password" name="userpass">
+    </div>
+
+    <!-- Обёртка для поля телефона. -->
+    <div>
+      <p>Номер телефона</p>
+      <input placeholder="Номер телефона" tabindex="3" type="tel" name="userphone">
+    </div>
+
+    <!-- Обёртка для radio-группы «Пол». -->
+    <div>
+      <p>Пол</p>
+
+      <div>
+        <!--
+                  <input type="radio" name="gender" value="male">
+                  checked — выбрано по умолчанию.
+                -->
+        <input tabindex="4" checked type="radio" name="gender" value="male">Мужской
+      </div>
+
+      <div>
+        <!--
+                  Вторая радиокнопка той же группы (name="gender").
+                  Оба radio имеют tabindex="4" — ошибка:
+                  tabindex должен быть уникальным.
+                  Радио-группа и так обрабатывается как один
+                  элемент в порядке Tab.
+                -->
+        <input tabindex="4" type="radio" name="gender" value="female">Женский
+      </div>
+    </div>
+
+    <!-- Обёртка для checkbox-группы «Имущество». -->
+    <div>
+      <p>Имущество</p>
+
+      <div>
+        <!--
+                  disabled — флажок отключён:
+                  пользователь не может его отметить,
+                  значение НЕ отправляется на сервер.
+                -->
+        <input tabindex="5" disabled type="checkbox" name="bike" value="yes">Велосипед
+      </div>
+
+      <div>
+        <input tabindex="6" checked type="checkbox" name="car" value="yes">Машина
+      </div>
+
+      <div>
+        <input tabindex="7" type="checkbox" name="house" value="yes">Квартира
+      </div>
+    </div>
+
+    <!-- Обёртка для многострочного поля. -->
+    <div>
+      <p>Дополнительная информация</p>
+      <textarea tabindex="8" name="text"></textarea>
+    </div>
+
+    <!-- Обёртка для загрузки файла. -->
+    <div>
+      <p>Прикрепить фотографию</p>
+      <!--
+              Для передачи файла нужен method="post" и
+              enctype="multipart/form-data". В этой форме method="get",
+              поэтому файл на сервер не уйдёт.
+            -->
+      <input tabindex="9" type="file" name="userphoto">
+    </div>
+
+    <!-- Обёртка для выпадающего списка. -->
+    <div>
+      <p>Страна проживания</p>
+      <select tabindex="10" name="country">
+        <option value="United Kingdom">Великобритания</option>
+        <option value="Italy">Италия</option>
+        <option value="China">Китай</option>
+        <option selected value="Russian Federation">Российская Федерация</option>
+        <option value="USA">Соединённые Штаты Америки</option>
+      </select>
+    </div>
+
+    <!-- Обёртка для кнопок. -->
+    <div>
+      <p>Действия</p>
+      <button tabindex="11" type="submit">Отправить</button>
+      <button tabindex="12" type="reset">Очистить</button>
+    </div>
+
+  </form>
+
+</body>
+
+</html>

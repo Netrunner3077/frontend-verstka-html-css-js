@@ -1,0 +1,191 @@
+<!--
+  ============================================================
+  index.html — демонстрация HTML-формы.
+  Урок №4: теги form, input, textarea, select, button.
+  ============================================================
+-->
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Повторение HTML тегов. Часть №3 (Формы)</title>
+</head>
+
+<body>
+
+  <!--
+      <div> — универсальный контейнер для обёртки формы.
+    -->
+  <div>
+
+    <!--
+          <form> — оболочка формы.
+          action="#" — данные отправятся на текущий URL
+          (символ # означает якорь, реальной отправки не будет).
+          method="post" — данные передаются в теле запроса.
+          enctype="multipart/form-data" — обязательно для загрузки файлов
+          (работает только с method="post").
+        -->
+    <form action="#" method="post" enctype="multipart/form-data">
+
+      <!-- Обёртка для поля логина. -->
+      <div>
+        <!--
+                  <input type="text"> — однострочное текстовое поле.
+                  placeholder="Login" — подсказка внутри поля
+                  (исчезает при вводе, НЕ заменяет <label>).
+                  name="username" — имя поля для отправки на сервер.
+                  value="" — значение по умолчанию (пустое).
+                -->
+        <input placeholder="Login" type="text" name="username" value="">
+      </div>
+
+      <!-- Обёртка для поля пароля. -->
+      <div>
+        <!--
+                  <input type="password"> — поле пароля.
+                  Введённые символы скрываются (точки или звёздочки).
+                -->
+        <input placeholder="Password" type="password" name="user_pass" value="">
+      </div>
+
+      <!-- Обёртка для поля телефона. -->
+      <div>
+        <!--
+                  <input type="tel"> — поле для телефона.
+                  disabled — поле отключено:
+                    - не фокусируется;
+                    - не участвует в валидации;
+                    - НЕ отправляется на сервер.
+                  Для «только для чтения, но с отправкой» есть readonly.
+                -->
+        <input placeholder="Phone number" disabled type="tel" name="phone_number" value="">
+      </div>
+
+      <!-- Обёртка для radio-группы «Пол». -->
+      <div>
+
+        <p>
+          <!--
+                      <input type="radio"> — радиокнопка.
+                      В одной группе (одинаковый name) можно выбрать
+                      только ОДИН вариант.
+                      checked — выбрана по умолчанию.
+                      tabindex="1" — здесь лишний и создаёт конфликт
+                      с второй радиокнопкой (см. ниже).
+                    -->
+          <input checked tabindex="1" type="radio" name="sex" value="male">
+          Мужчина
+        </p>
+
+        <p>
+          <!--
+                      Вторая радиокнопка той же группы (name="sex").
+                      Оба radio имеют одинаковый tabindex="1" — это ошибка.
+                      Радио-группа в порядке Tab обычно рассматривается
+                      как один элемент, поэтому tabindex здесь не нужен.
+                      Переключение между вариантами — стрелками ←/→.
+                    -->
+          <input tabindex="1" type="radio" name="sex" value="female">
+          Женщина
+        </p>
+
+        <!--
+                  Рекомендуется оборачивать подписи в <label>,
+                  чтобы клик по тексту выбирал радиокнопку:
+                  <label><input type="radio" name="sex" value="male"> Мужчина</label>
+                -->
+      </div>
+
+      <!-- Обёртка для флажка согласия. -->
+      <div>
+        <p>
+          <!--
+                      <input type="checkbox"> — флажок.
+                      Позволяет выбрать несколько вариантов независимо.
+                      checked — установлен по умолчанию.
+                      name="rules" — имя поля.
+                      value="yes" — значение, которое уйдёт на сервер,
+                      если флажок отмечен.
+                    -->
+          <input checked type="checkbox" name="rules" value="yes">
+          Согласие на обработку персональных данных
+        </p>
+        <!--
+                  Подпись лучше обернуть в <label>:
+                  <label><input type="checkbox" ...> Согласие...</label>
+                -->
+      </div>
+
+      <!-- Обёртка для загрузки файла. -->
+      <div>
+        <p>
+          <!--
+                      <input type="file"> — выбор файла.
+                      name="photo" — имя поля.
+                      Для работы с файлами обязательно:
+                        method="post" и enctype="multipart/form-data".
+                    -->
+          <input type="file" name="photo">
+        </p>
+      </div>
+
+      <!-- Обёртка для многострочного поля. -->
+      <div>
+        <!--
+                  <textarea> — многострочное поле.
+                  name="text" — имя поля.
+                  В отличие от <input>, значение задаётся
+                  не через value, а между тегами:
+                  <textarea name="text">Текст</textarea>
+                -->
+        <textarea name="text"></textarea>
+      </div>
+
+      <!-- Обёртка для выпадающего списка. -->
+      <div>
+        <!--
+                  <select> — выпадающий список.
+                  name="country" — имя поля.
+                -->
+        <select name="country">
+          <!--
+                      <option> — пункт списка.
+                      value — значение, которое уйдёт на сервер.
+                      Текст между тегами — то, что видит пользователь.
+                    -->
+          <option value="Russia">Росиия</option>
+          <option value="USA">США</option>
+          <!--
+                      selected — выбран по умолчанию.
+                    -->
+          <option selected value="China">Китай</option>
+        </select>
+      </div>
+
+      <!-- Обёртка для кнопок. -->
+      <div>
+        <!--
+                  <button type="submit"> — отправляет форму на сервер.
+                  Без type по умолчанию тоже submit,
+                  но лучше указывать явно.
+                -->
+        <button type="submit">Отправить</button>
+
+        <!--
+                  <button type="reset"> — сбрасывает все поля формы
+                  к значениям по умолчанию.
+                -->
+        <button type="reset">Очистить</button>
+      </div>
+
+    </form>
+
+  </div>
+
+</body>
+
+</html>
