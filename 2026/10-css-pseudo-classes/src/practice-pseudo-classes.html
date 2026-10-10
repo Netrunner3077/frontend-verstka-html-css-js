@@ -1,0 +1,65 @@
+<!--
+  ============================================================
+  practice-pseudo-classes.html — практическое задание по уроку №10.
+  Список задач с чекбоксами + псевдоклассы форм.
+  ============================================================
+-->
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/practice-pseudo-classes.css">
+  <title>Повторение CSS. Часть №6 (Практика)</title>
+</head>
+
+<body>
+
+  <div class="wrapper">
+
+    <h1 class="title">Список задач</h1>
+
+    <!--
+          Форма со списком задач.
+          Каждая задача — <label> с <input type="checkbox">.
+          Псевдоклассы:
+            :checked — отмечает выполненную задачу.
+            :hover — подсветка при наведении.
+            :nth-child(odd) — чередование фона.
+            :not(:last-child) — отступ у всех, кроме последней.
+        -->
+    <form class="task-form">
+
+      <label class="task">
+        <input class="task__checkbox" type="checkbox" checked>
+        <span class="task__text">Изучить псевдоклассы</span>
+      </label>
+
+      <label class="task">
+        <input class="task__checkbox" type="checkbox">
+        <span class="task__text">Сделать практику</span>
+      </label>
+
+      <label class="task">
+        <input class="task__checkbox" type="checkbox">
+        <span class="task__text">Проверить доступность</span>
+      </label>
+
+      <label class="task">
+        <input class="task__checkbox" type="checkbox">
+        <span class="task__text">Закоммитить результат</span>
+      </label>
+
+    </form>
+
+    <!-- Дополнительно: кнопка с :focus-visible. -->
+    <button class="btn" type="button">Добавить задачу</button>
+
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!--
+  ============================================================
+  index.html — демонстрация CSS-псевдоклассов.
+  Урок №10: :hover, :focus, :active, :visited, :first-child,
+  :last-child, :nth-child(), odd, even.
+  ============================================================
+-->
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Повторение CSS. Часть №6 (Псевдоклассы)</title>
+</head>
+
+<body>
+
+  <!--
+      <div class="block"> — блок с тремя абзацами.
+      В style.css:
+        .block:hover — фон при наведении на весь блок.
+        .block p:nth-child(even) — жёлтый фон у чётных абзацев.
+    -->
+  <div class="block">
+    <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+      Nemo cupiditate, iure odit provident reprehenderit culpa officia deserunt.
+      Dolorum praesentium voluptatem pariatur nihil nisi,
+      <!--
+              <a class="link"> — ссылка.
+              В style.css:
+                .link — синий цвет.
+                .link:visited — зелёный для посещённых.
+                .link:hover — красный с подчёркиванием.
+            -->
+      <a href="#" class="link">rerum consectetur in laudantium</a>,
+      id quis numquam?
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+      Impedit beatae, ea, nobis assumenda quae libero esse neque sint molestiae nisi totam veritatis unde et magnam
+      tempore,
+      facere laboriosam doloribus vitae?
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      Consequuntur ea vel repudiandae voluptas ipsam ipsa quasi eaque,
+      provident ut accusamus qui aliquam voluptatum dignissimos,
+      in fuga et ratione nulla eos.
+    </p>
+  </div>
+
+  <!--
+      <form> — форма с input и button.
+      В style.css:
+        .inpt:focus — тень при фокусе на поле.
+        .btn:hover — изменение цвета при наведении.
+        .btn:active — зелёный фон при нажатии.
+    -->
+  <form action="#">
+    <input type="text" name="text" class="inpt">
+    <button type="submit" class="btn">Отправить</button>
+  </form>
+
+  <!--
+      <ul class="list"> — список из 5 элементов.
+      В style.css:
+        .list li:first-child — первый элемент красный.
+        .list li:last-child — последний элемент фиолетовый и жирный.
+        .list li:nth-child(3) — третий элемент зелёный с подчёркиванием.
+        .list li:nth-child(odd) — нечётные элементы в верхнем регистре.
+    -->
+  <ul class="list">
+    <li>text</li>
+    <li>text</li>
+    <li>text</li>
+    <li>text</li>
+    <li>text</li>
+  </ul>
+
+</body>
+
+</html>

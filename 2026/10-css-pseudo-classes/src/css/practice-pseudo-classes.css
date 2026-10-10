@@ -1,0 +1,130 @@
+/*
+  ============================================================
+  practice-pseudo-classes.css — стили практического задания
+  по уроку №10.
+  ============================================================
+*/
+
+.wrapper {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #0f172a;
+}
+
+/*
+  Форма со списком задач.
+*/
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+/*
+  .task — обёртка задачи (label).
+  display: flex, padding, border, border-radius.
+  transition — плавное изменение фона.
+*/
+.task {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/*
+  :hover — подсветка при наведении.
+  Оборачиваем в @media (hover: hover),
+  чтобы не «залипало» на сенсорных устройствах.
+*/
+@media (hover: hover) {
+  .task:hover {
+    background-color: #eff6ff;
+    border-color: #bfdbfe;
+  }
+}
+
+/*
+  :not(:last-child) — отступ у всех, кроме последней задачи.
+  Но у нас используется gap во flex, поэтому этот пример — для демонстрации.
+*/
+.task:not(:last-child) {
+  /* margin-bottom: 12px; — не нужен, gap уже даёт отступ. */
+}
+
+/*
+  :nth-child(odd) — нечётные задачи.
+  Чередование фона.
+*/
+.task:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/*
+  :checked — отмеченный чекбокс.
+  Стилизуем соседний <span> через комбинатор +.
+  Когда чекбокс отмечен, текст задачи становится серым и зачёркнутым.
+*/
+.task__checkbox:checked+.task__text {
+  color: #94a3b8;
+  text-decoration: line-through;
+}
+
+/*
+  :focus-visible — фокус для клавиатуры.
+  Контур только при навигации с клавиатуры.
+*/
+.task__checkbox:focus-visible+.task__text,
+.btn:focus-visible {
+  outline: 2px solid #f97316;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/*
+  .btn — кнопка.
+  padding, background-color, color, border-radius, cursor.
+  transition — плавное изменение.
+*/
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: #f97316;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/*
+  :hover — при наведении на кнопку.
+  Оборачиваем в @media (hover: hover).
+*/
+@media (hover: hover) {
+  .btn:hover {
+    background-color: #ea580c;
+    transform: translateY(-2px);
+  }
+}
+
+/*
+  :active — в момент нажатия.
+*/
+.btn:active {
+  transform: translateY(0);
+}

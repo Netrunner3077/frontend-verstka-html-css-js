@@ -1,0 +1,174 @@
+﻿/*
+  ============================================================
+  style.css — демонстрация псевдоклассов.
+  Урок №10.
+  ============================================================
+*/
+
+body {
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  padding: 30px;
+}
+
+.block {
+  margin: 0 0 30px 0;
+}
+
+/*
+  :hover — срабатывает при наведении курсора на элемент.
+  Здесь — на весь блок .block.
+  Фон становится полупрозрачным голубым.
+*/
+.block:hover {
+  background-color: rgba(165, 240, 255, 0.5);
+}
+
+.block p {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+/*
+  :nth-child(even) — выбирает чётные элементы.
+  Здесь — каждый второй <p> внутри .block получает жёлтый фон.
+  Нумерация начинается с 1. even = 2n (2, 4, 6, ...).
+*/
+.block p:nth-child(even) {
+  background-color: yellow;
+}
+
+/*
+  .link — базовая ссылка.
+  Синий цвет.
+*/
+.link {
+  color: blue;
+}
+
+/*
+  :visited — посещённая ссылка.
+  Зелёный цвет.
+  ВАЖНО: для :visited работают только ограниченные свойства:
+  color, background-color, border-color, outline-color,
+  text-decoration-color. Остальные игнорируются из соображений безопасности.
+*/
+.link:visited {
+  color: green;
+}
+
+/*
+  :hover — при наведении.
+  Красный цвет + подчёркивание.
+  Порядок LVHA: :link → :visited → :hover → :focus → :active.
+  Здесь порядок соблюдён.
+*/
+.link:hover {
+  color: red;
+  text-decoration: underline;
+}
+
+/*
+  .inpt — поле ввода.
+  border, border-radius, height, width, padding, margin, font-size.
+*/
+.inpt {
+  border: 3px solid grey;
+  border-radius: 10px;
+  height: 50px;
+  width: 300px;
+  padding: 0 15px;
+  margin: 0 0 10px 0;
+  font-size: 18px;
+}
+
+/*
+  :focus — поле в фокусе.
+  Тень при получении фокуса.
+  СОВРЕМЕННАЯ ПРАКТИКА: для доступности лучше использовать
+  :focus-visible, чтобы контур не появлялся при клике мышью.
+  Но :focus тоже допустим, если нужна подсветка при любом фокусе.
+*/
+.inpt:focus {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/*
+  .btn — кнопка.
+  display: block, width, height, background-color, border-radius,
+  font-size, color, text-transform, margin.
+*/
+.btn {
+  display: block;
+  width: 300px;
+  height: 50px;
+  background-color: grey;
+  border-radius: 10px;
+  font-size: 18px;
+  color: whitesmoke;
+  text-transform: uppercase;
+  margin: 0 0 30px 0;
+}
+
+/*
+  :hover — при наведении на кнопку.
+  Тёмно-серый фон + жёлтый текст.
+*/
+.btn:hover {
+  background-color: darkgrey;
+  color: yellow;
+}
+
+/*
+  :active — в момент нажатия на кнопку.
+  Зелёный фон.
+*/
+.btn:active {
+  background-color: green;
+}
+
+/*
+  .list li — элементы списка.
+  font-size, margin.
+*/
+.list li {
+  font-size: 18px;
+  margin: 0 0 15px 0;
+}
+
+/*
+  :first-child — первый элемент в родителе.
+  Здесь — первый <li> в .list. Красный цвет.
+  ВАЖНО: если добавить новый <li> в начало, :first-child выберет уже его.
+  Это не «перестаёт работать», а выбирает новый первый элемент.
+*/
+.list li:first-child {
+  color: crimson;
+}
+
+/*
+  :last-child — последний элемент в родителе.
+  Фиолетовый цвет + жирный.
+*/
+.list li:last-child {
+  color: purple;
+  font-weight: 700;
+}
+
+/*
+  :nth-child(3) — третий элемент.
+  Зелёный цвет + подчёркивание.
+*/
+.list li:nth-child(3) {
+  color: greenyellow;
+  text-decoration: underline;
+}
+
+/*
+  :nth-child(odd) — нечётные элементы.
+  odd = 2n+1 (1, 3, 5, ...).
+  Верхний регистр.
+*/
+.list li:nth-child(odd) {
+  text-transform: uppercase;
+}
