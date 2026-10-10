@@ -1,0 +1,153 @@
+/*
+  ============================================================
+  style.css — демонстрация свойств шрифта и текста.
+  Урок №6.
+  ============================================================
+*/
+
+/*
+  font-family: список семейств шрифтов.
+  Браузер идёт слева направо: Arial → Helvetica → любой sans-serif.
+  sans-serif — generic family, обязательный «запасной» вариант.
+*/
+.arial {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*
+  font-size: размер шрифта.
+  px — абсолютная единица.
+  Современная практика: rem или clamp() для адаптивности.
+*/
+.fontSize {
+  font-size: 30px;
+}
+
+/*
+  font-style: начертание.
+  italic — курсив (использует отдельный шрифт).
+  oblique — наклон обычных символов.
+*/
+.fontStyle {
+  font-style: italic;
+}
+
+/*
+  font-weight: насыщенность.
+  700 = bold. Допустимы: 100, 200, 300, 400, 500, 600, 700, 800, 900.
+  Ключевые слова: normal = 400, bold = 700.
+*/
+.fontWeight {
+  font-weight: 700;
+}
+
+/*
+  color: цвет текста.
+  red — именованный цвет.
+  Также: hex (#ff0000), rgb(), hsl(), oklch().
+*/
+.colorized {
+  color: red;
+}
+
+/*
+  text-align: горизонтальное выравнивание.
+  right — по правому краю.
+  left — по левому (по умолчанию).
+  center — по центру.
+  justify — по ширине.
+*/
+.textRight {
+  text-align: right;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.textJustify {
+  text-align: justify;
+}
+
+/*
+  text-decoration: shorthand для line, color, style.
+  underline — подчёркивание.
+  line-through — зачёркивание.
+  overline — линия над текстом.
+  Можно комбинировать через пробел.
+*/
+.textDecoration {
+  text-decoration: underline line-through overline;
+}
+
+/*
+  text-shadow: тень текста.
+  Синтаксис: смещение_X смещение_Y размытие цвет.
+  5px вправо, 5px вниз, 5px размытие, чёрный.
+  Рекомендуется использовать rgba() для прозрачности.
+*/
+.textShadow {
+  text-shadow: 5px 5px 5px #000;
+}
+
+/*
+  text-transform: преобразование регистра.
+  capitalize — первая буква каждого слова заглавная.
+  uppercase — все буквы прописные.
+  lowercase — все строчные.
+  none — не менять.
+*/
+.textTransform {
+  text-transform: capitalize;
+}
+
+.textUppercase {
+  text-transform: uppercase;
+}
+
+/*
+  text-indent: отступ первой строки.
+  50px — «красная строка».
+  Можно в процентах (от ширины родителя).
+*/
+.redString {
+  text-indent: 50px;
+}
+
+/*
+  letter-spacing: межбуквенный интервал.
+  5px — разрядить текст.
+  Может быть отрицательным (сжать).
+*/
+.textSpaceing {
+  letter-spacing: 5px;
+}
+
+/*
+  word-spacing: межсловный интервал.
+  10px — увеличить пробелы между словами.
+  Может быть отрицательным.
+*/
+.wordSpaceing {
+  word-spacing: 10px;
+}
+
+/*
+  white-space: управление пробелами и переносами.
+  nowrap — схлопывает пробелы, запрещает автоматический перенос.
+  Текст выходит за границы контейнера.
+  normal — вернуть перенос.
+*/
+.textWhitespaceing {
+  white-space: nowrap;
+}
+
+/*
+  line-height: межстрочный интервал.
+  28px — фиксированная высота.
+  РЕКОМЕНДАЦИЯ: использовать безразмерное число (1.5),
+  чтобы интервал масштабировался при изменении font-size.
+*/
+.textLineheight {
+  line-height: 28px;
+}
