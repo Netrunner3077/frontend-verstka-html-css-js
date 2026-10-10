@@ -1,0 +1,72 @@
+<!--
+  ============================================================
+  index.html — демонстрация оформления блоков.
+  Урок №8: border, border-radius, outline, box-shadow,
+  opacity, visibility.
+  ============================================================
+-->
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Повторение CSS. Часть №4 (Свойства и стили оформления блоков)</title>
+</head>
+
+<body>
+
+  <!--
+      <div class="example-bock"> — блочный элемент.
+      В style.css: margin, padding, outline, border,
+      border-radius, box-shadow, font-size.
+    -->
+  <div class="example-bock">
+    Блочный тег<br>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+    Cum ipsum impedit sunt vitae ab obcaecati,
+    laboriosam saepe illum reiciendis molestiae animi reprehenderit distinctio ducimus,
+    minus tempore deserunt beatae magnam aperiam!
+  </div>
+
+  <!--
+      <p> с тремя <img class="avatar">.
+      В style.css: height, width, border-radius: 50% (круг),
+      border: 3px solid #000.
+    -->
+  <p>
+    <img src="img/Avatar_0.jpeg" alt="Profile photo" class="avatar">
+    <img src="img/Avatar_1.jpeg" alt="Profile photo" class="avatar">
+    <img src="img/Avatar_2.jpeg" alt="Profile photo" class="avatar">
+  </p>
+
+  <!--
+      <span class="example-string"> — строчный элемент.
+      В style.css: outline: 5px solid rebeccapurple.
+      На строчном элементе outline работает,
+      но border вёл бы себя иначе (по периметру каждой строки).
+    -->
+  <span class="example-string">
+    Строчный тег<br>
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, quia assumenda?
+    Aperiam commodi doloribus quae autem, optio ab provident amet fugiat dolore?
+    At voluptatem cum minima culpa accusantium magnam commodi!
+  </span>
+
+  <!--
+      <img class="example-image"> — изображение.
+      В style.css: outline: 7px dashed palevioletred,
+      border: 5px dashed #08d1df,
+      border-radius: 50px,
+      overflow: hidden.
+    -->
+  <p>
+    <img src="img/Dreamcore.jpeg" alt="Dreamcore" class="example-image">
+  </p>
+
+</body>
+
+</html>

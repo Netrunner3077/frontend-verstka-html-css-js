@@ -1,0 +1,107 @@
+/*
+  ============================================================
+  style.css — демонстрация оформления блоков.
+  Урок №8.
+  ============================================================
+*/
+
+/*
+  .example-bock — блочный элемент.
+
+  margin: 10px 10px 30px 10px — внешние отступы:
+    верх 10, право 10, низ 30, лево 10.
+
+  padding: 15px — внутренний отступ.
+
+  outline: 5px solid red — контур 5px, сплошной, красный.
+    Контур НЕ влияет на размер и положение блока.
+    Он рисуется снаружи, поверх границы.
+
+  border: 3px solid #000 — граница 3px, сплошная, чёрная.
+    Влияет на размер (при content-box) или «съедает» содержимое (при border-box).
+
+  border-radius: 10px — скругление углов на 10px.
+
+  box-shadow: 5px 5px 10px 5px black, inset 5px 5px 10px 5px gray;
+    Первая тень (5px 5px 10px 5px black) — внешняя:
+      сдвиг X: 5px, сдвиг Y: 5px,
+      размытие: 10px, распространение: 5px,
+      цвет: чёрный.
+    Вторая тень (inset 5px 5px 10px 5px gray) — внутренняя:
+      inset в начале — ключевое слово для внутренней тени,
+      далее те же параметры, цвет серый.
+    Тени разделены запятой. Первая — сверху.
+
+  font-size: 24px — размер текста.
+*/
+.example-bock {
+  margin: 10px 10px 30px 10px;
+  padding: 15px;
+  outline: 5px solid red;
+  border: 3px solid #000;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 5px black, inset 5px 5px 10px 5px gray;
+  font-size: 24px;
+}
+
+/*
+  .example-string — строчный элемент.
+
+  outline: 5px solid rebeccapurple — контур 5px, сплошной, фиолетовый.
+    На строчном элементе контур рисуется вокруг КАЖДОЙ строки отдельно,
+    а не вокруг всего блока.
+
+  Закомментированные свойства:
+    opacity: 0; — элемент станет полностью прозрачным,
+      но останется в потоке и будет доступен для кликов.
+    visibility: 0; — НЕВЕРНОЕ значение.
+      visibility принимает visible | hidden | collapse.
+      Правильно: visibility: hidden; — элемент скрыт,
+      место сохраняется, взаимодействовать нельзя.
+*/
+.example-string {
+  font-size: 24px;
+  outline: 5px solid rebeccapurple;
+  /* opacity: 0; */
+  /* visibility: hidden; */
+}
+
+/*
+  .avatar — аватар (изображение).
+
+  height: 100px; width: 100px; — квадрат.
+
+  border-radius: 50% — круг, потому что width = height.
+    Если бы width и height были разными, получился бы эллипс.
+
+  border: 3px solid #000 — граница 3px, сплошная, чёрная.
+*/
+.avatar {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 3px solid #000;
+}
+
+/*
+  .example-image — изображение.
+
+  outline: 7px dashed palevioletred — контур 7px, штриховой.
+    Контур не поддерживает border-radius —
+    он останется прямоугольным, даже если у изображения скругление.
+
+  border: 5px dashed #08d1df — граница 5px, штриховая, голубая.
+    Граница ПОДДЕРЖИВАЕТ border-radius.
+
+  border-radius: 50px — скругление 50px.
+
+  overflow: hidden — обрезает дочерние элементы по скруглению.
+    Для <img> это не даёт видимого эффекта (у него нет дочерних элементов),
+    но в связке с border-radius работает для контейнеров.
+*/
+.example-image {
+  outline: 7px dashed palevioletred;
+  border: 5px dashed #08d1df;
+  border-radius: 50px;
+  overflow: hidden;
+}

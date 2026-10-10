@@ -1,0 +1,57 @@
+<!--
+  ============================================================
+  practice-block-styling.html — практическое задание по уроку №8.
+  Свёрстана «карточка профиля» для закрепления темы:
+  border, border-radius, outline, box-shadow, opacity.
+  ============================================================
+-->
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/practice-block-styling.css">
+  <title>Повторение CSS. Часть №4 (Практика)</title>
+</head>
+
+<body>
+
+  <div class="wrapper">
+
+    <!-- Карточка профиля. -->
+    <article class="profile-card">
+
+      <!-- Аватар (круглый). -->
+      <img class="profile-card__avatar" src="img/Avatar_0.jpeg" alt="Аватар пользователя">
+
+      <h2 class="profile-card__name">Иван Иванов</h2>
+
+      <p class="profile-card__role">Frontend-разработчик</p>
+
+      <p class="profile-card__bio">
+        Изучаю HTML, CSS и JavaScript. Верстаю адаптивные интерфейсы
+        и разбираюсь в блочной модели.
+      </p>
+
+      <button class="profile-card__button" type="button">
+        Написать сообщение
+      </button>
+
+    </article>
+
+    <!-- Три блока для сравнения display/visibility/opacity. -->
+    <div class="compare">
+      <div class="compare__box compare__box--visible">visible</div>
+      <div class="compare__box compare__box--hidden">hidden</div>
+      <div class="compare__box compare__box--none">none</div>
+      <div class="compare__box compare__box--opacity">opacity 0.3</div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
